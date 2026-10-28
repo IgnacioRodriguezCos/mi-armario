@@ -1,0 +1,789 @@
+{
+    "version": 1,
+    "prendas": {
+        "imagenes/Pantalones/Equus Formal Verde-Beige Oscuro.png": {
+            "hash": "d79007778cf18ca0b2b90d738b8aae55f36c990803c77a02703690fda4d12433",
+            "marca": "Equus",
+            "tipo": "pantalón formal",
+            "color": [
+                "verde",
+                "beige oscuro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Equus Lino Gris.png": {
+            "hash": "f184f01ebe33a86fdbb779101fc59e6d079000dbf236b1f245b75c0ff858e38d",
+            "marca": "Equus",
+            "tipo": "pantalón de lino",
+            "color": [
+                "gris"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Genérico Formal Beige.png": {
+            "hash": "6f38c769da7fc1e93541d1ca374ad4293af101dd7b10a02b2a368dc2806aede4",
+            "marca": "Genérico",
+            "tipo": "pantalón formal",
+            "color": [
+                "beige"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Genérico Formal Negro.png": {
+            "hash": "98f21dc48d9887e09f35952d199e22ef92d421ab58f09f85738fcb36ae2bf33c",
+            "marca": "Genérico",
+            "tipo": "pantalón formal",
+            "color": [
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Genérico Formal Verde.png": {
+            "hash": "bb8ad6250f9baa6d960c3917bb61cdee4b7ef3f794b2db661cc67bbd93895fd4",
+            "marca": "Genérico",
+            "tipo": "pantalón formal",
+            "color": [
+                "verde"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Kevingston Formal Bordeaux.png": {
+            "hash": "1e134553f4a719682f06fa9e6b4878a325609ccd294ed4c46b6729f85f3f1ed8",
+            "marca": "Kevingston",
+            "tipo": "pantalón formal",
+            "color": [
+                "bordó"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Kevingston Jean Negro.png": {
+            "hash": "893f2d2815f1c5525c0f8cf71b924048576d0bfafe1d2428006b0c9902cc55a6",
+            "marca": "Kevingston",
+            "tipo": "jean",
+            "color": [
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Levis Jean Azul.png": {
+            "hash": "46311e896694bf99b78c865b6edc3969ff959dfb5b4633bd13ae3c6653b0710a",
+            "marca": "Levi's",
+            "tipo": "jean",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Levis Jean Mostaza.png": {
+            "hash": "f2b0c34ed4584a3586c03c106f0d573b5f007e3bd12405feb89427ed955fe8e3",
+            "marca": "Levi's",
+            "tipo": "jean",
+            "color": [
+                "mostaza"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Macowens Corderoy Azul.png": {
+            "hash": "5f7fdc4de54d8b567caaf01fdd1d9a199e34dd4a47eba0ea235bfe79f508a70d",
+            "marca": "Macowens",
+            "tipo": "pantalón de corderoy",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Macowens Corderoy Marrón.png": {
+            "hash": "0d9b4af697395a63f62080b4057a3596589b2f68f89cd446a61840e9437fc2c5",
+            "marca": "Macowens",
+            "tipo": "pantalón de corderoy",
+            "color": [
+                "marrón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Macowens Corderoy Verde.png": {
+            "hash": "553932c801224a6eae2e7682293fd8495a84fe8c24abbd874f4b87ae7685b8fe",
+            "marca": "Macowens",
+            "tipo": "pantalón de corderoy",
+            "color": [
+                "verde"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Revoler Jean Azul Oscuro.png": {
+            "hash": "e8ddae4d66f95ad35baedb302e79f4be3def925fad31702078677659d3355a84",
+            "marca": "Revolver",
+            "tipo": "jean",
+            "color": [
+                "azul oscuro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Revolver Jean Azul Claro.png": {
+            "hash": "d8964e4850807471a7c6ade7ba124a14251b473d0bfa1d11fab204096868542b",
+            "marca": "Revolver",
+            "tipo": "jean",
+            "color": [
+                "azul claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Simonacci Corte Jean Azul.png": {
+            "hash": "8a847382526e01a9ea136c944d274454ab9e800fbd5052fe15150b68e37cc933",
+            "marca": "Simonacci",
+            "tipo": "jean",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Simonacci Corte Jean Beige.png": {
+            "hash": "637f9f192703ac8764d8422c65ff7c6f7aa9bca705f466ad5bbb0eef21af2186",
+            "marca": "Simonacci",
+            "tipo": "jean",
+            "color": [
+                "beige"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Kevingston Chomba Gris y Negra.png": {
+            "hash": "f3bec43d4011c6b9484ca61caa11417b55ce732af167c3833fdcaf213fc6a452",
+            "marca": "Kevingston",
+            "tipo": "chomba",
+            "color": [
+                "gris",
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Newport Chomba Blanca, Negra, Azul y Gris.png": {
+            "hash": "8c7d5561be4a8db010f1bd8be08dee27e19173ffc6844e33087a264344a75e77",
+            "marca": "Newport",
+            "tipo": "chomba",
+            "color": [
+                "blanco",
+                "negro",
+                "azul",
+                "gris"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Newport Chomba Gris, Roja, Blanca y Azul.png": {
+            "hash": "ef5a09e5cf14197828219a7c4f38f32b17fe11e7513f09eee3ac03d810b2c244",
+            "marca": "Newport",
+            "tipo": "chomba",
+            "color": [
+                "gris",
+                "rojo",
+                "blanco",
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Rusty Chomba Marrón, Naranja y Gris.png": {
+            "hash": "a693f283a38456668f3c7415e7c67de71a8088389ee1607e6ffe57707de52d4d",
+            "marca": "Rusty",
+            "tipo": "chomba",
+            "color": [
+                "marrón",
+                "naranja",
+                "gris"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Taco Chomba Azul.png": {
+            "hash": "1f748c6e421aaeeb17ea237491ca44f21cacc3c8318dfcdf89fc4b40e80516eb",
+            "marca": "Taco",
+            "tipo": "chomba",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Taco Chomba Roja.png": {
+            "hash": "0c755c2a3308ca274e3b774e51988c27a7bdad76a58218fc99019378b77719b1",
+            "marca": "Taco",
+            "tipo": "chomba",
+            "color": [
+                "rojo"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Taco Chomba Verde.png": {
+            "hash": "4a08635a9276b40cb541569d6c9439fd0d36d2b8843cdbe432904813033f3f5b",
+            "marca": "Taco",
+            "tipo": "chomba",
+            "color": [
+                "verde"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Nike Cortez Blancas y Negro.png": {
+            "hash": "74f81dfac942639b7bd9a1760771013e770cc8dc267f28a4db392059991835ea",
+            "marca": "Nike",
+            "tipo": "zapatilla",
+            "color": [
+                "blanco",
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Nike Cortez Blancas, Rojo y Azul.png": {
+            "hash": "f8f8d44720a482e5ec0a7f3df2d998a542973060ab4aba6628cb0e5ee4c57448",
+            "marca": "Nike",
+            "tipo": "zapatilla",
+            "color": [
+                "blanco",
+                "rojo",
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Nike Killshot 2 Blancas y Azul.png": {
+            "hash": "4475f2184c3bfb8fe3c021f3fb0b0cef9963b73638bda2cbdb3fd2cb61e2df76",
+            "marca": "Nike",
+            "tipo": "zapatilla",
+            "color": [
+                "blanco",
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Nike Killshot 2 Negras.png": {
+            "hash": "5c18f5dbae6b3337cb8190e77c3e008c1291cbcc073873d96ad51133431a366b",
+            "marca": "Nike",
+            "tipo": "zapatilla",
+            "color": [
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Nike Tempo Legend Ten.png": {
+            "hash": "e231cf580c030ecbd5652f0c1e76bef1b79c1325349b8be618886b05bccc2d88",
+            "marca": "Nike",
+            "tipo": "botín de fútbol",
+            "color": [
+                "plateado",
+                "negro",
+                "verde neón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Bershka Bomber Gamuza Beige.png": {
+            "hash": "79d6863e224b61d073d9383cb7e67327ced9f05f59baadc9e27e24cddc0ecdd7",
+            "marca": "Bershka",
+            "tipo": "bomber de gamuza",
+            "color": [
+                "beige"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Cloudveil Camisaco Marrón.png": {
+            "hash": "72a5ad7e503483b1cdc305f079fb3aba0495b8352fdef0622058247999416d22",
+            "marca": "Cloudveil",
+            "tipo": "camisaco",
+            "color": [
+                "marrón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Columbia Abrigo Polar Azul.png": {
+            "hash": "6163f1a025de573324131dd934d7dd05452dff3edc6c927c17344df5bbc41247",
+            "marca": "Columbia",
+            "tipo": "abrigo polar",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Columbia Abrigo Polar Beige Claro.png": {
+            "hash": "ccd863a4b6f7ac997a0ad65b0736e5ced9c053b9e380e2e0e809bfb4d9074c3d",
+            "marca": "Columbia",
+            "tipo": "abrigo polar",
+            "color": [
+                "beige claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Columbia Abrigo Polar Grueso Beige Oscuro.png": {
+            "hash": "1e0b8957ca959799ad0edce63b834a5dd1482f677e2933d05d81680d5da5e42b",
+            "marca": "Columbia",
+            "tipo": "abrigo polar grueso",
+            "color": [
+                "beige oscuro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Equus Buzo Star Wars Negro.png": {
+            "hash": "08c06cc9bb748bf6b4b2d4447b172080d8ef9cabb34861788b9cebb152cb587f",
+            "marca": "Equus",
+            "tipo": "buzo",
+            "color": [
+                "negro"
+            ],
+            "estilo": "Star Wars"
+        },
+        "imagenes/Abrigos/Levis Campera Jean Azul.png": {
+            "hash": "36ac422e5c6888b4c444ebdd80e74f5ee308e9e97719c3af60d4f5308ce75eb5",
+            "marca": "Levi's",
+            "tipo": "campera de jean",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Macowens Buzo Azul.png": {
+            "hash": "0722070b74a60aebe30e2fa99e0ca0000e0c005d6de3046d6b1787ae6ac2d7b8",
+            "marca": "Macowens",
+            "tipo": "buzo",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Macowens Buzo Gris.png": {
+            "hash": "01fc2078b8acecc3250299891d6a654f1b2977918f510257b4716e575fbf2940",
+            "marca": "Macowens",
+            "tipo": "buzo",
+            "color": [
+                "gris"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Rever Pass Bomber Negra.png": {
+            "hash": "88bf68229c559f72275a2473d556de4664a4a6907392e06ecd46ee6dc1355a96",
+            "marca": "Rever Pass",
+            "tipo": "bomber",
+            "color": [
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Vineyard Vines Campera Azul.png": {
+            "hash": "15039511ddb094e837340550ad88c56e62c91fa41086547eb0416394d9b66f13",
+            "marca": "Vineyard Vines",
+            "tipo": "campera",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Abrigos/Zara Campera Azul.png": {
+            "hash": "4cb89766ce95d79ec8d68b3b69e82180dbf983337d733cf8bc48c19d82b21256",
+            "marca": "Zara",
+            "tipo": "campera",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Bluemakers Camisa Formal Celeste.png": {
+            "hash": "bb914a7c1b97c4be81fc473649043e1a87b5d70968a7e5ed6a920c9a10ca7d8e",
+            "marca": "Bluemakers",
+            "tipo": "camisa formal",
+            "color": [
+                "celeste"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Disciplina Camisa Casual Azul y Celsete.png": {
+            "hash": "b8d3d8a52f3ac541fdd8b0f22b17a1d1b7dae62a08fb2c8369b7bec4050fe5a6",
+            "marca": "Disciplina",
+            "tipo": "camisa casual",
+            "color": [
+                "azul",
+                "celeste"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Equus Camisa Formal Blanco y Celeste.png": {
+            "hash": "c1d08ddca4d5a9fc5c38657f18091922df43e5cd6fa446ab2b65651cb2da8e42",
+            "marca": "Equus",
+            "tipo": "camisa formal",
+            "color": [
+                "blanco",
+                "celeste"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Equus Camisa Formal Celeste Claro.png": {
+            "hash": "55f4b0020b390376f9228ef4ab28be03de4a556d8591ad253af675a2684de66c",
+            "marca": "Equus",
+            "tipo": "camisa formal",
+            "color": [
+                "celeste claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Genérico Camisa Casual Blanco y Celeste.png": {
+            "hash": "b285ed703b2f52e445a57fdbe1f4da3d7a2db1a5ea49b712230ad6a4e60bda29",
+            "marca": "Genérico",
+            "tipo": "camisa casual",
+            "color": [
+                "blanco",
+                "celeste"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Genérico Camisa Casual Cuadros Blanca y Violeta.png": {
+            "hash": "51c2502becfff3740e1c9d772f982fe9bc663ace421cddb11b8ca499864dc315",
+            "marca": "Genérico",
+            "tipo": "camisa casual",
+            "color": [
+                "blanco",
+                "violeta"
+            ],
+            "estilo": "cuadros"
+        },
+        "imagenes/Camisas/Genérico Camisa Casual Rojo, Azul y Blanco.png": {
+            "hash": "19a8ee241b79c7f3c0334ba86cf2c91fd2ff802098e596c71fb0a7533af9f688",
+            "marca": "Genérico",
+            "tipo": "camisa casual",
+            "color": [
+                "rojo",
+                "azul",
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Genérico Camisa Leñador Celeste y Blanco.png": {
+            "hash": "ca86b09ced38eb59939462b1dc9ecb1ab2985238d9eb57d7ae68fe58d1095eb6",
+            "marca": "Genérico",
+            "tipo": "camisa leñador",
+            "color": [
+                "celeste",
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Gnérico Camisa Formal Negro y Azul.png": {
+            "hash": "d7e900fc10690ab798211db40bfd8d5e81916257d321e1b1c5a84fef0e4c8b82",
+            "marca": "Genérico",
+            "tipo": "camisa formal",
+            "color": [
+                "negro",
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Kevingston Camisa Casual Azul y Blanco.png": {
+            "hash": "eeac53a4f9fd2e4885e769db2fe644ded4930942c02dba7da8ceaba435d0453f",
+            "marca": "Kevingston",
+            "tipo": "camisa casual",
+            "color": [
+                "azul",
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Kevingston Camisa Casual Blanco y Azul.png": {
+            "hash": "1a85c92631266f53d60ea5983a526d948848576938d6d35c3e08bc161d1a43a4",
+            "marca": "Kevingston",
+            "tipo": "camisa casual",
+            "color": [
+                "blanco",
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Kevingston Camisa Formal Blanco y Negro.png": {
+            "hash": "bc3beb8da71bf5178d3c8a7a976348d02175276769dd1e03d79bfd0803a39c0d",
+            "marca": "Kevingston",
+            "tipo": "camisa formal",
+            "color": [
+                "blanco",
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Kevingston Camisa Formal Celeste Claro.png": {
+            "hash": "12034d10ab338afa9c7bc12345b87083c05e3f93a19ccb9e5bf130a30e0b585a",
+            "marca": "Kevingston",
+            "tipo": "camisa formal",
+            "color": [
+                "celeste claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Kevingston Camisa Formal Negro Azul Verde.png": {
+            "hash": "4d9bce20711b6a6289dff8bfa3fe098a9646a272cd54081ac7598bec2bdfd863",
+            "marca": "Kevingston",
+            "tipo": "camisa formal",
+            "color": [
+                "negro",
+                "azul",
+                "verde"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Quicksilver Camisa Casual Gris y Rojo.png": {
+            "hash": "7264fab08477813bd73008da2a18d9831ac454c6fd63a849b1f7a0c3271505d0",
+            "marca": "Quiksilver",
+            "tipo": "camisa casual",
+            "color": [
+                "gris",
+                "rojo"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Rever Pass Camisa Casual Blanca y Negra Cuadrillé.png": {
+            "hash": "1c883daad6e9529a366c1b08ba4a9f216731b13a5bcc9f8b7013c6617df5d639",
+            "marca": "Rever Pass",
+            "tipo": "camisa casual",
+            "color": [
+                "blanco",
+                "negro"
+            ],
+            "estilo": "cuadrillé"
+        },
+        "imagenes/Camisas/Rochas Camisa Formal Azul Oscuro.png": {
+            "hash": "4c84fd3ad0394340831c6bfcd4d9b6924856b09890b438266d45433804be5bb7",
+            "marca": "Rochas",
+            "tipo": "camisa formal",
+            "color": [
+                "azul oscuro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Camisas/Rochas Camisa Formal Blanca.png": {
+            "hash": "c5180b1fbc9bcdb1abf6941401e73c3f6c36348d62fad661392e83717b4afff5",
+            "marca": "Rochas",
+            "tipo": "camisa formal",
+            "color": [
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Genérico Chomba Blanca.png": {
+            "hash": "dfaf15a99bb0e6342d22b85b819ea3291d33cf0a00229a05dc3d3996f4d96464",
+            "marca": "Genérico",
+            "tipo": "chomba",
+            "color": [
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Kevingston Chomba Larga Marrón.png": {
+            "hash": "4e15ce0aff555ec1bfd5ac60dbb8b1a2bb6cdc379d95b98afcf718a6d609376b",
+            "marca": "Kevingston",
+            "tipo": "chomba larga",
+            "color": [
+                "marrón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Kevingston Chomba Turquesa.png": {
+            "hash": "e1fbb7876e7750d365f82bdbb92e68cb98f27033d5f75e45db26bfd3ca9d995c",
+            "marca": "Kevingston",
+            "tipo": "chomba",
+            "color": [
+                "turquesa"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Moha Chomba Azul y Rojo.png": {
+            "hash": "0cc3aa620549f5989ea78cf78f19ccc613a960960c946ce341b6b28300e9e2b0",
+            "marca": "Moha",
+            "tipo": "chomba",
+            "color": [
+                "azul",
+                "rojo"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Nike Barça Chomba Salmón.png": {
+            "hash": "e0d3da2e82c0331c9898407eefe90e3ea158bf69a96b0f408523b77efc73ed2d",
+            "marca": "Nike",
+            "tipo": "chomba",
+            "color": [
+                "salmón"
+            ],
+            "estilo": "Barça"
+        },
+        "imagenes/Chomba/Ralph Lauren Chomba Blanca y Crema.png": {
+            "hash": "7891b75437aaa70ca7dd8b967d1b0cf3fa4ab5d21479a7f413a3585b6841a73a",
+            "marca": "Ralph Lauren",
+            "tipo": "chomba",
+            "color": [
+                "blanco",
+                "crema"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Chomba/Rever Pass Chomba Azul - Gris.png": {
+            "hash": "a1a561c47aad4c7c38549b625cb3edf1873af66dc56e8347c60ac10a1bd229e5",
+            "marca": "Rever Pass",
+            "tipo": "chomba",
+            "color": [
+                "azul",
+                "gris"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Equus Formal Azul.png": {
+            "hash": "4b3b77de1cbc59b8c849696ee91c4a732e897ae664307432c94c309c4f632d83",
+            "marca": "Equus",
+            "tipo": "pantalón formal",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Equus Formal Beige Claro.png": {
+            "hash": "c08cbfb5f045497163d476a521e0692cbd3a3f94b79dc96693718a4a2f340b17",
+            "marca": "Equus",
+            "tipo": "pantalón formal",
+            "color": [
+                "beige claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Pantalones/Equus Formal Beige Oscuro-Verde.png": {
+            "hash": "5f12a116a8d0d43213556829be0f18ef330d26b2fbb0ebbea14f6caee8ecf368",
+            "marca": "Equus",
+            "tipo": "pantalón formal",
+            "color": [
+                "beige oscuro",
+                "verde"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Genérico Remera Blanca.png": {
+            "hash": "df8ec5f3f1692b9c84943a929d399796819cdc35c70ff08da64692ce240dd19f",
+            "marca": "Genérico",
+            "tipo": "remera",
+            "color": [
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Genérico Remera Celeste.png": {
+            "hash": "987658c3f31234eab4b20ec1b96f39b5003040887fa3b0383390b3a9d8cf554b",
+            "marca": "Genérico",
+            "tipo": "remera",
+            "color": [
+                "celeste"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Genérico Remera Roja.png": {
+            "hash": "8f9d3ce38e6450fc962ef5298fafacf834c7e277fe8ccc8df9ae62d04f4ff5c4",
+            "marca": "Genérico",
+            "tipo": "remera",
+            "color": [
+                "rojo"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Genérico Remera Turquesa.png": {
+            "hash": "2ad83338a31a9dc9a2b4aae3352428e9bb8a54996a60d870ff1a8339ee1b51e7",
+            "marca": "Genérico",
+            "tipo": "remera",
+            "color": [
+                "turquesa"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Legacy Remera Fina Blanco.png": {
+            "hash": "c96f017349e6dc370f6a17509cdf1a78fcf68dedef9e97d45750749a31f9da9c",
+            "marca": "Legacy",
+            "tipo": "remera fina",
+            "color": [
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/Mistral Remera Azul.png": {
+            "hash": "a25e671608bc7a85d342c8f1736feec456367acd3241e795713f21ca741fffdf",
+            "marca": "Mistral",
+            "tipo": "remera",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/US Polo Remera Azul.png": {
+            "hash": "51e699003f60f830030861d94271d305a811fe520da29061181d8f2612706f13",
+            "marca": "US Polo",
+            "tipo": "remera",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Remeras/US Polo Remera Bordeaux.png": {
+            "hash": "72542c15ef9ac6d53d005a10baa107cd47c551fa1eb92f22f403884d0e41acb9",
+            "marca": "US Polo",
+            "tipo": "remera",
+            "color": [
+                "bordó"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatillas/Adidas Lite Racer 4.0.jpg.png": {
+            "hash": "50468b3b65c8affef77cc9f5c150d71940b222d834ac27db04d161294d22f562",
+            "marca": "Adidas",
+            "tipo": "zapatilla de correr",
+            "color": [
+                "negro",
+                "blanco"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Genérico Mocasines Marrón.png": {
+            "hash": "e82a5e0dc5637a9618695910fe31ec4b4b6d2650605db73fdc3bd64ed0ee1c4b",
+            "marca": "Genérico",
+            "tipo": "mocasines",
+            "color": [
+                "marrón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Genérico Zapato Azul.png": {
+            "hash": "a3b67d90f9f420b6341d4e0ba677eaa50311a9d5dfdf630fe11c1d703627a7aa",
+            "marca": "Genérico",
+            "tipo": "zapato",
+            "color": [
+                "azul"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Genérico Zapato Negro.png": {
+            "hash": "c7ccf97b33724e994ba9faaaf8a5300294e0f3351da65a5cbde0047d913503f2",
+            "marca": "Genérico",
+            "tipo": "zapato",
+            "color": [
+                "negro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Oggi Mocasines Azul y Marrón.png": {
+            "hash": "7350efaf1cc5202778e7a5370b721457b91b5dfecff4143f87d16bca4d39a273",
+            "marca": "Oggi",
+            "tipo": "mocasines",
+            "color": [
+                "azul",
+                "marrón"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Oggi Zapatos Marrón Claro.png": {
+            "hash": "a0ae70c6ca80bac27808288c76d92c6d1493b5070a74d6d188da4cd66b332e2f",
+            "marca": "Oggi",
+            "tipo": "zapato",
+            "color": [
+                "marrón claro"
+            ],
+            "estilo": ""
+        },
+        "imagenes/Zapatos/Timberland Botas Marrón.png": {
+            "hash": "456c48da0ac2c6f34212f665f3ffee8cc2f4c8630f48aee0eea082db2a4e0539",
+            "marca": "Timberland",
+            "tipo": "botas",
+            "color": [
+                "marrón"
+            ],
+            "estilo": ""
+        }
+    }
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mi Armario</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Mi Armario</h1>
+            <nav>
+                <button class="nav-btn active" data-view="conjuntos">Conjuntos</button>
+                <button class="nav-btn" data-view="armario">Armario</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Vista Conjuntos -->
+            <section id="view-conjuntos" class="view active">
+                <div class="section-header">
+                    <h2>Mis Conjuntos</h2>
+                    <button id="btn-crear-conjunto" class="btn-primary">+ Crear Conjunto</button>
+                </div>
+                <div id="conjuntos-grid" class="grid"></div>
+            </section>
+
+            <!-- Vista Armario -->
+            <section id="view-armario" class="view">
+                <div class="section-header">
+                    <h2>Mis Prendas</h2>
+                    <button id="btn-agregar-prenda" class="btn-primary">+ Agregar Prenda</button>
+                </div>
+                <div id="filtros-armario" class="filtros-armario">
+                    <span class="filtros-titulo">Filtrar</span>
+                    <select
+                        id="filtro-categoria"
+                        class="filtro-select"
+                        aria-label="Categoría"
+                    ></select>
+                    <select id="filtro-marca" class="filtro-select" aria-label="Marca"></select>
+                    <select id="filtro-tipo" class="filtro-select" aria-label="Tipo"></select>
+                    <select id="filtro-color" class="filtro-select" aria-label="Color"></select>
+                    <select id="filtro-estilo" class="filtro-select" aria-label="Estilo"></select>
+                    <button
+                        type="button"
+                        id="btn-limpiar-filtros"
+                        class="btn-secondary btn-limpiar-filtros"
+                        disabled
+                    >
+                        Limpiar
+                    </button>
+                </div>
+                <div id="prendas-grid" class="prendas-categorias"></div>
+            </section>
+
+            <!-- Vista Crear Conjunto -->
+            <section id="view-crear-conjunto" class="view">
+                <div class="section-header">
+                    <h2>Crear Nuevo Conjunto</h2>
+                    <button id="btn-volver-conjuntos" class="btn-secondary">&larr; Volver</button>
+                </div>
+                <form id="form-conjunto" class="form-conjunto">
+                    <input
+                        type="text"
+                        id="nombre-conjunto"
+                        placeholder="Nombre del conjunto"
+                        autocomplete="off"
+                        required
+                    />
+                    <p class="editor-ayuda">
+                        Haz clic en un espacio para asignarle una prenda. Fila 1: remeras, camisas y
+                        abrigos. Fila 2: cinturones. Fila 3: pantalones. Fila 4: medias. Fila 5:
+                        zapatillas. Puedes arrastrar las prendas para cambiar su orden dentro de una
+                        fila y agregar columnas nuevas en cada fila.
+                    </p>
+                    <div id="editor-filas" class="editor-filas"></div>
+                    <button type="submit" class="btn-primary">Guardar Conjunto</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Modal Detalle Conjunto -->
+        <div id="modal-detalle-conjunto" class="modal">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h3 id="detalle-conjunto-nombre">Detalle del Conjunto</h3>
+                    <button class="close-btn" id="close-modal-detalle">&times;</button>
+                </div>
+                <div class="detalle-body">
+                    <p class="detalle-instrucciones">
+                        Arrastra las prendas para cambiar su posición. Fila 1: remeras, camisas y
+                        abrigos. Fila 2: cinturones. Fila 3: pantalones. Fila 4: medias. Fila 5:
+                        zapatillas. Puedes agregar columnas a cada fila.
+                    </p>
+                    <div id="detalle-filas" class="detalle-filas"></div>
+                </div>
+                <div class="detalle-footer">
+                    <button id="btn-guardar-detalle" class="btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Elegir Prenda -->
+        <div id="modal-picker" class="modal">
+            <div class="modal-content modal-large">
+                <div class="modal-header">
+                    <h3 id="picker-titulo">Elegir prenda</h3>
+                    <button class="close-btn" id="close-modal-picker">&times;</button>
+                </div>
+                <div class="detalle-body">
+                    <p id="picker-ayuda" class="picker-ayuda" hidden></p>
+                    <div class="filtros" id="filtros-container"></div>
+                    <div id="picker-prendas" class="selector-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Agregar Prenda -->
+        <div id="modal-prenda" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Agregar Prenda</h3>
+                    <button class="close-btn" id="close-modal-prenda">&times;</button>
+                </div>
+                <form id="form-prenda">
+                    <input
+                        type="text"
+                        id="nombre-prenda"
+                        placeholder="Nombre de la prenda"
+                        autocomplete="off"
+                        required
+                    />
+                    <label class="file-label">
+                        <input type="file" id="foto-prenda" accept="image/*" required />
+                        <span>Seleccionar foto</span>
+                    </label>
+                    <div id="preview-container" class="preview-container" style="display: none">
+                        <img id="preview-img" src="" alt="Preview" />
+                    </div>
+                    <button type="submit" class="btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Ver Imagen -->
+        <div id="modal-imagen" class="modal">
+            <div class="modal-content modal-imagen-content">
+                <div class="modal-header">
+                    <h3 id="imagen-nombre"></h3>
+                    <button class="close-btn" id="close-modal-imagen">&times;</button>
+                </div>
+                <div class="imagen-body">
+                    <img id="imagen-grande" src="" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script src="logic.js?v=16"></script>
+        <script src="app.js?v=16"></script>
+    </body>
+</html>

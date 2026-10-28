@@ -1,0 +1,17 @@
+{
+    "name": "wardrobe",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Organizador de prendas y conjuntos",
+    "scripts": {
+        "start": "python server.py",
+        "lint": "eslint app.js logic.js tests",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "test": "node --test tests/logic.test.js"
+    },
+    "devDependencies": {
+        "eslint": "^9.0.0",
+        "prettier": "^3.0.0"
+    }
+}
