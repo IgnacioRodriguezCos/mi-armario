@@ -4,9 +4,6 @@ node_modules/
 # Python
 __pycache__/
 
-# Fotos del armario (agregarlas localmente en imagenes/<Categoría>/)
-imagenes/
-
 # Datos generados en runtime
 datos/thumbs/
 datos/conjuntos.json
