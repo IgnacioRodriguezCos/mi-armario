@@ -79,14 +79,22 @@ async function cargarConjuntosDesdeServidor() {
         const delServidor = await res.json();
         if (!Array.isArray(delServidor)) return;
 
-        // Migración inicial: el servidor está vacío pero hay conjuntos locales
-        if (delServidor.length === 0 && conjuntos.length > 0) {
+        // Migración inicial (una sola vez): el servidor está vacío pero hay
+        // conjuntos locales. El flag evita re-subir datos viejos si el
+        // servidor se vacía a propósito más adelante.
+        if (
+            delServidor.length === 0 &&
+            conjuntos.length > 0 &&
+            !localStorage.getItem('conjuntos-migrados')
+        ) {
+            localStorage.setItem('conjuntos-migrados', '1');
             await guardarConjuntos();
             return;
         }
 
         conjuntos = delServidor;
         localStorage.setItem('conjuntos', JSON.stringify(conjuntos));
+        localStorage.setItem('conjuntos-migrados', '1');
         renderConjuntos();
     } catch (e) {
         console.error('Error al cargar conjuntos:', e);
@@ -736,7 +744,8 @@ function abrirPicker(fi, ci, modo = 'editor') {
         modo,
         fila: fi,
         col: ci,
-        categoriasPermitidas: permitidas
+        categoriasPermitidas: permitidas,
+        filas: modo === 'detalle' ? filasDetalle : borradorFilas
     };
     filtroActual = permitidas.length > 1 ? 'todos' : permitidas[0];
     pickerTitulo.textContent = nombreCategoria
@@ -761,12 +770,33 @@ function renderPickerPrendas() {
     pickerPrendas.innerHTML = '';
 
     const permitidas = pickerTarget ? pickerTarget.categoriasPermitidas : [];
-    const lista = prendas.filter((prenda) => {
+    const candidatas = prendas.filter((prenda) => {
         if (filtroActual !== 'todos') return esCategoria(prenda, filtroActual);
         if (permitidas.length) {
             return permitidas.some((categoria) => esCategoria(prenda, categoria));
         }
         return true;
+    });
+
+    // Prendas ya usadas en el conjunto, excepto la del espacio que se
+    // está reemplazando (una prenda no puede duplicarse en el conjunto).
+    // La identidad es el hash (estable entre dispositivos); si no hay
+    // hash (prendas manuales), se usa el id local.
+    const clavePrenda = (prenda) => (prenda ? prenda.hash || prenda.id : undefined);
+    const usadas = new Set();
+    if (pickerTarget && pickerTarget.filas) {
+        pickerTarget.filas.forEach((fila, fi) => {
+            fila.forEach((prenda, ci) => {
+                const clave = clavePrenda(prenda);
+                if (clave === undefined || clave === null) return;
+                if (fi === pickerTarget.fila && ci === pickerTarget.col) return;
+                usadas.add(clave);
+            });
+        });
+    }
+    const lista = candidatas.filter((prenda) => {
+        const clave = clavePrenda(prenda);
+        return clave === undefined || clave === null || !usadas.has(clave);
     });
 
     if (lista.length === 0) {
@@ -776,6 +806,9 @@ function renderPickerPrendas() {
                 filtroActual === 'todos'
                     ? 'No hay prendas para esta fila.'
                     : `No hay prendas de categoría "${filtroActual}".`;
+        }
+        if (candidatas.length > 0) {
+            mensaje = 'Todas las prendas de esta fila ya están en el conjunto.';
         }
         pickerPrendas.innerHTML = `<p style="color: #666;">${mensaje}</p>`;
         return;
@@ -796,6 +829,7 @@ function renderPickerPrendas() {
         `;
         item.addEventListener('click', () => {
             if (!pickerTarget) return;
+            if (usadas.has(clavePrenda(prenda))) return;
             if (
                 pickerTarget.categoriasPermitidas.length &&
                 !pickerTarget.categoriasPermitidas.some((categoria) =>
