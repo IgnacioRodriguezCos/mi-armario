@@ -219,12 +219,22 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                             if f.lower().endswith(EXTENSIONES_IMAGEN):
                                 name = os.path.splitext(f)[0]
                                 foto = f'imagenes/{cat}/{f}'
-                                hash_imagen = hash_archivo(os.path.join(cat_dir, f))
-                                meta = (
-                                    metadatos.get(foto)
-                                    or metadatos_por_hash.get(hash_imagen)
-                                    or {}
+                                meta = metadatos.get(foto)
+                                hash_guardado = (
+                                    str(meta.get('hash') or '').lower()
+                                    if isinstance(meta, dict)
+                                    else ''
                                 )
+                                if hash_guardado:
+                                    # El hash ya está en etiquetas.json: evita
+                                    # recalcular el SHA-256 del archivo
+                                    hash_imagen = hash_guardado
+                                else:
+                                    hash_imagen = hash_archivo(
+                                        os.path.join(cat_dir, f)
+                                    )
+                                    if meta is None:
+                                        meta = metadatos_por_hash.get(hash_imagen) or {}
                                 item = {
                                     'nombre': name,
                                     'categoria': cat,
