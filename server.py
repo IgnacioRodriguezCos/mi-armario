@@ -1,10 +1,13 @@
+import base64
 import hashlib
 import http.server
 import json
 import os
 import threading
 import time
+import urllib.error
 import urllib.parse
+import urllib.request
 
 PORT = int(os.environ.get('PORT', 8080))
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -55,19 +58,136 @@ def version_conjuntos():
         return 0.0
 
 
-def cargar_conjuntos():
+GITHUB_API = 'https://api.github.com'
+
+_lock_conjuntos = threading.Lock()
+_lock_sync_github = threading.Lock()
+_conjuntos_memoria = None
+
+
+def _config_github():
+    """Configuración de GitHub como almacenamiento de conjuntos.
+
+    Requiere las variables de entorno GITHUB_TOKEN y CONJUNTOS_REPO
+    (formato "usuario/repo"). Sin ellas, se usa solo el archivo local.
+    """
+    token = os.environ.get('GITHUB_TOKEN', '').strip()
+    repo = os.environ.get('CONJUNTOS_REPO', '').strip()
+    ruta = os.environ.get('CONJUNTOS_PATH', 'conjuntos.json').strip() or 'conjuntos.json'
+    if token and '/' in repo:
+        return token, repo, ruta
+    return None
+
+
+def _leer_conjuntos_local():
     try:
         with open(CONJUNTOS, encoding='utf-8-sig') as archivo:
             datos = json.load(archivo)
     except (OSError, json.JSONDecodeError):
-        return []
-    return datos if isinstance(datos, list) else []
+        return None
+    return datos if isinstance(datos, list) else None
+
+
+def _leer_conjuntos_remoto():
+    cfg = _config_github()
+    if not cfg:
+        return None
+    token, repo, ruta = cfg
+    url = f'{GITHUB_API}/repos/{repo}/contents/{urllib.parse.quote(ruta)}'
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={
+                'Authorization': f'Bearer {token}',
+                'Accept': 'application/vnd.github+json',
+                'User-Agent': 'mi-armario',
+            },
+        )
+        with urllib.request.urlopen(req, timeout=15) as respuesta:
+            datos = json.load(respuesta)
+        lista = json.loads(base64.b64decode(datos.get('content', '')).decode('utf-8'))
+        return lista if isinstance(lista, list) else None
+    except Exception as e:
+        print(f'No se pudieron leer los conjuntos desde GitHub: {e}')
+        return None
+
+
+def _sincronizar_conjuntos_github():
+    cfg = _config_github()
+    if not cfg:
+        return
+    token, repo, ruta = cfg
+    with _lock_sync_github:
+        try:
+            with open(CONJUNTOS, 'rb') as archivo:
+                contenido = archivo.read()
+        except OSError:
+            return
+
+        url = f'{GITHUB_API}/repos/{repo}/contents/{urllib.parse.quote(ruta)}'
+        cabeceras = {
+            'Authorization': f'Bearer {token}',
+            'Accept': 'application/vnd.github+json',
+            'User-Agent': 'mi-armario',
+            'Content-Type': 'application/json',
+        }
+
+        # Se necesita el sha del archivo existente para actualizarlo
+        sha = None
+        try:
+            req = urllib.request.Request(url, headers=cabeceras)
+            with urllib.request.urlopen(req, timeout=15) as respuesta:
+                sha = json.load(respuesta).get('sha')
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                print(f'No se pudo consultar GitHub: {e}')
+                return
+        except Exception as e:
+            print(f'No se pudo consultar GitHub: {e}')
+            return
+
+        cuerpo = {
+            'message': 'Actualizar conjuntos',
+            'content': base64.b64encode(contenido).decode('ascii'),
+        }
+        if sha:
+            cuerpo['sha'] = sha
+
+        try:
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(cuerpo).encode('utf-8'),
+                headers=cabeceras,
+                method='PUT',
+            )
+            with urllib.request.urlopen(req, timeout=15) as respuesta:
+                respuesta.read()
+        except Exception as e:
+            print(f'No se pudo guardar en GitHub: {e}')
+
+
+def cargar_conjuntos():
+    global _conjuntos_memoria
+    if _conjuntos_memoria is not None:
+        return _conjuntos_memoria
+    with _lock_conjuntos:
+        if _conjuntos_memoria is not None:
+            return _conjuntos_memoria
+        datos = _leer_conjuntos_remoto()
+        if datos is None:
+            datos = _leer_conjuntos_local()
+        _conjuntos_memoria = datos if isinstance(datos, list) else []
+        return _conjuntos_memoria
 
 
 def guardar_conjuntos(lista):
-    with open(CONJUNTOS, 'w', encoding='utf-8', newline='\n') as archivo:
-        json.dump(lista, archivo, ensure_ascii=False, indent=4)
-        archivo.write('\n')
+    global _conjuntos_memoria
+    with _lock_conjuntos:
+        _conjuntos_memoria = lista
+        with open(CONJUNTOS, 'w', encoding='utf-8', newline='\n') as archivo:
+            json.dump(lista, archivo, ensure_ascii=False, indent=4)
+            archivo.write('\n')
+    threading.Thread(target=_sincronizar_conjuntos_github, daemon=True).start()
 
 
 def ruta_thumb(rel):
@@ -378,6 +498,7 @@ class Servidor(http.server.ThreadingHTTPServer):
 
 if __name__ == '__main__':
     threading.Thread(target=pregenerar_thumbs, daemon=True).start()
+    threading.Thread(target=cargar_conjuntos, daemon=True).start()
     with Servidor(('', PORT), Handler) as httpd:
         print(f"Servidor iniciado en http://localhost:{PORT}")
         httpd.serve_forever()

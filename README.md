@@ -58,4 +58,17 @@ Como **Web Service** (no como Static Site — la app necesita el backend de Pyth
 
 El servidor escucha en el puerto de la variable de entorno `PORT` (la que Render provee) o en 8080 si no está definida.
 
-⚠️ **Limitación importante**: el filesystem de Render es efímero. `datos/conjuntos.json` y el cache de miniaturas se pierden en cada deploy o reinicio. Las miniaturas se regeneran solas al usarse, pero **los conjuntos guardados se borran** al redesplegar. Para persistencia real, montá un Render Disk sobre `datos/` o migrá los conjuntos a una base de datos.
+### Persistencia de los conjuntos vía GitHub
+
+El filesystem de Render es efímero: `datos/conjuntos.json` se pierde en cada deploy o reinicio. Para que los conjuntos persistan, el servidor puede usar un **repo privado de GitHub como almacenamiento**: al arrancar baja `conjuntos.json` del repo, y en cada guardado lo sincroniza vía API (el archivo local queda como cache).
+
+Configuración con dos variables de entorno:
+
+| Variable | Valor |
+|---|---|
+| `GITHUB_TOKEN` | Un [Personal Access Token](https://github.com/settings/personal-access-tokens) (fine-grained) con acceso **solo** al repo de datos y permiso **Contents: Read and write** |
+| `CONJUNTOS_REPO` | `usuario/mi-armario-datos` (el repo privado donde guardar) |
+
+Opcional: `CONJUNTOS_PATH` (por defecto `conjuntos.json`) para cambiar el nombre del archivo dentro del repo.
+
+Sin estas variables, el servidor funciona igual pero solo con el archivo local.
