@@ -84,11 +84,11 @@ test('esCategoria reconoce la categoría sin distinguir mayúsculas', () => {
 });
 
 test('categoriasPermitidasFila define las categorías de cada fila', () => {
-    assert.deepEqual(categoriasPermitidasFila(0), ['remeras', 'camisas', 'abrigos']);
+    assert.deepEqual(categoriasPermitidasFila(0), ['remeras', 'camisas', 'abrigos', 'chomba']);
     assert.deepEqual(categoriasPermitidasFila(1), ['cinturones']);
     assert.deepEqual(categoriasPermitidasFila(2), ['pantalones']);
     assert.deepEqual(categoriasPermitidasFila(3), ['medias']);
-    assert.deepEqual(categoriasPermitidasFila(4), ['zapatillas']);
+    assert.deepEqual(categoriasPermitidasFila(4), ['zapatillas', 'zapatos']);
     assert.deepEqual(categoriasPermitidasFila(5), []);
 });
 

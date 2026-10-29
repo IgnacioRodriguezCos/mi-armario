@@ -694,12 +694,61 @@ input:focus-visible {
     font-weight: 600;
     letter-spacing: -0.015em;
     margin-bottom: 0;
+    line-height: 1.3;
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .conjunto-acciones {
     display: flex;
     gap: 0.5rem;
     margin-top: 0.5rem;
+}
+
+.btn-renombrar {
+    flex: 0 0 auto;
+    background: var(--surface-alt);
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-sec);
+    font-size: 0.8rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.btn-renombrar:hover {
+    background: #ebebeb;
+    color: var(--text);
+}
+
+.input-renombrar {
+    flex: 1;
+    min-width: 0;
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    padding: 0.2rem 0.5rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-renombrar:focus {
+    outline: none;
 }
 
 .conjunto-acciones .btn-delete,
@@ -728,9 +777,11 @@ input:focus-visible {
 
 .conjunto-prendas {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.5rem;
     margin-bottom: 0.9rem;
+    height: 60px;
+    overflow: hidden;
 }
 
 .conjunto-prenda-thumb {
@@ -743,6 +794,23 @@ input:focus-visible {
     transition: transform 0.15s ease;
     -webkit-user-drag: none;
     user-drag: none;
+    pointer-events: none;
+    flex: 0 0 auto;
+}
+
+.conjunto-prenda-mas {
+    flex: 0 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px dashed var(--border-strong);
+    background: var(--surface-alt);
+    color: var(--text-sec);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
 }
 

@@ -8,11 +8,11 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
     const NUM_FILAS = 5;
     const CATEGORIAS_POR_FILA = {
-        0: ['remeras', 'camisas', 'abrigos'],
+        0: ['remeras', 'camisas', 'abrigos', 'chomba'],
         1: ['cinturones'],
         2: ['pantalones'],
         3: ['medias'],
-        4: ['zapatillas']
+        4: ['zapatillas', 'zapatos']
     };
 
     function filasVacias() {

@@ -19,7 +19,8 @@ const NOMBRES_CATEGORIA = {
     cinturones: 'Cinturón',
     pantalones: 'Pantalón',
     medias: 'Medias',
-    zapatillas: 'Zapatilla'
+    zapatillas: 'Zapatilla',
+    zapatos: 'Zapato'
 };
 
 function enumerarCategorias(categorias) {
@@ -871,6 +872,82 @@ function mostrarToast(mensaje) {
 
 // ----------------- Lista y detalle de conjuntos -----------------
 
+function thumbConjunto(p) {
+    return `<img src="${p.thumb || p.foto}" alt="${p.nombre}" class="conjunto-prenda-thumb" title="${p.nombre}" draggable="false">`;
+}
+
+// Fija una sola fila de miniaturas por tarjeta; si no entran todas,
+// muestra las que caben y un indicador "+N"
+function ajustarPrendasConjunto(card, items) {
+    const contenedor = card.querySelector('.conjunto-prendas');
+    const ancho = contenedor.clientWidth;
+    if (!ancho) {
+        // La vista está oculta: se ajusta en el próximo render
+        contenedor.innerHTML = items.map(thumbConjunto).join('');
+        return;
+    }
+
+    const POR_THUMB = 70; // 60px + 2px de borde + 8px de gap
+    const visibles = Math.max(1, Math.floor((ancho + 8) / POR_THUMB));
+
+    if (items.length <= visibles) {
+        contenedor.innerHTML = items.map(thumbConjunto).join('');
+        return;
+    }
+
+    const caben = visibles - 1;
+    contenedor.innerHTML =
+        items.slice(0, caben).map(thumbConjunto).join('') +
+        `<div class="conjunto-prenda-mas" title="${items.length - caben} prendas más">+${items.length - caben}</div>`;
+}
+
+// Renombrar un conjunto inline desde la tarjeta
+function editarNombreConjunto(card, conjunto) {
+    const titulo = card.querySelector('.conjunto-card-header h3');
+    if (!titulo || card.querySelector('.input-renombrar')) return;
+    card.draggable = false;
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'input-renombrar';
+    input.value = conjunto.nombre;
+    titulo.replaceWith(input);
+    input.focus();
+    input.select();
+
+    let cerrado = false;
+    const cerrar = (guardar) => {
+        if (cerrado) return;
+        const nombre = input.value.trim();
+
+        if (guardar && nombre && nombre !== conjunto.nombre) {
+            const duplicado = conjuntos.some(
+                (c) => c.id !== conjunto.id && c.nombre.toLowerCase() === nombre.toLowerCase()
+            );
+            if (duplicado) {
+                mostrarToast('Ya existe un conjunto con ese nombre');
+            } else {
+                conjunto.nombre = nombre;
+                guardarConjuntos();
+                mostrarToast('Conjunto renombrado');
+            }
+        } else if (guardar && !nombre) {
+            mostrarToast('El nombre no puede estar vacío');
+        }
+
+        cerrado = true;
+        renderConjuntos();
+    };
+
+    input.addEventListener('keydown', (e) => {
+        e.stopPropagation();
+        if (e.key === 'Enter') cerrar(true);
+        else if (e.key === 'Escape') cerrar(false);
+    });
+    input.addEventListener('click', (e) => e.stopPropagation());
+    input.addEventListener('blur', () => cerrar(true));
+}
+
 function renderConjuntos() {
     conjuntosGrid.innerHTML = '';
     if (conjuntos.length === 0) {
@@ -888,10 +965,9 @@ function renderConjuntos() {
         card.innerHTML = `
             <div class="conjunto-card-header">
                 <h3>${conjunto.nombre}</h3>
+                <button type="button" class="btn-renombrar" data-renombrar="${conjunto.id}" title="Renombrar conjunto">&#9998;</button>
             </div>
-            <div class="conjunto-prendas">
-                ${items.map((p) => `<img src="${p.thumb || p.foto}" alt="${p.nombre}" class="conjunto-prenda-thumb" title="${p.nombre}" draggable="false">`).join('')}
-            </div>
+            <div class="conjunto-prendas"></div>
             <div class="conjunto-acciones">
                 <button class="btn-delete" data-eliminar="${conjunto.id}" style="margin-top: 0; flex: 1;">Eliminar</button>
                 <button class="btn-duplicar" data-duplicar="${conjunto.id}" style="flex: 1;">Duplicar</button>
@@ -951,7 +1027,12 @@ function renderConjuntos() {
             e.stopPropagation();
             window.duplicarConjunto(conjunto.id);
         });
+        card.querySelector('[data-renombrar]').addEventListener('click', (e) => {
+            e.stopPropagation();
+            editarNombreConjunto(card, conjunto);
+        });
         conjuntosGrid.appendChild(card);
+        ajustarPrendasConjunto(card, items);
     });
 }
 
@@ -1057,6 +1138,13 @@ closeModalDetalle.addEventListener('click', cerrarDetalle);
 
 modalDetalle.addEventListener('click', (e) => {
     if (e.target === modalDetalle) cerrarDetalle();
+});
+
+// Reajustar las miniaturas de los conjuntos al cambiar el tamaño de la ventana
+let temporizadorResize = null;
+window.addEventListener('resize', () => {
+    clearTimeout(temporizadorResize);
+    temporizadorResize = setTimeout(renderConjuntos, 150);
 });
 
 // Inicialización
