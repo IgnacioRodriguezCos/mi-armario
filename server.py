@@ -6,7 +6,7 @@ import threading
 import time
 import urllib.parse
 
-PORT = 8080
+PORT = int(os.environ.get('PORT', 8080))
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 METADATOS = os.path.join(DIRECTORY, 'datos', 'etiquetas.json')
 CONJUNTOS = os.path.join(DIRECTORY, 'datos', 'conjuntos.json')

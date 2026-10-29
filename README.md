@@ -47,3 +47,15 @@ npm test
 ```
 
 Cubren la lógica pura de `logic.js` (estructura de conjuntos, movimientos permitidos, reconciliación con el servidor).
+
+## Deploy en Render
+
+Como **Web Service** (no como Static Site — la app necesita el backend de Python para la API y las miniaturas):
+
+- **Runtime**: Python 3
+- **Build command**: `pip install -r requirements.txt`
+- **Start command**: `python server.py`
+
+El servidor escucha en el puerto de la variable de entorno `PORT` (la que Render provee) o en 8080 si no está definida.
+
+⚠️ **Limitación importante**: el filesystem de Render es efímero. `datos/conjuntos.json` y el cache de miniaturas se pierden en cada deploy o reinicio. Las miniaturas se regeneran solas al usarse, pero **los conjuntos guardados se borran** al redesplegar. Para persistencia real, montá un Render Disk sobre `datos/` o migrá los conjuntos a una base de datos.
